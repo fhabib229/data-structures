@@ -14,11 +14,15 @@ var Queue = function() {
 
   someInstance.dequeue = function() {
     var garbage = storage[1];
-    delete storage[size];
-    for (var key in storage) {
-      key--;
-    }
+    delete storage[1];
+    var values = Object.values(storage);
     size--;
+    for (var key in storage) {
+      delete storage[key];
+    }
+    for (var i = 1; i <= size; i++) {
+      storage[i] = values[i - 1];
+    }
     return garbage;
   };
 
