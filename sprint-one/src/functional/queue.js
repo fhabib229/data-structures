@@ -13,8 +13,11 @@ var Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    var garbage = storage[size];
+    var garbage = storage[1];
     delete storage[size];
+    for (var key in storage) {
+      key--;
+    }
     size--;
     return garbage;
   };
