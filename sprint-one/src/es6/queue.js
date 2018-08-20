@@ -26,7 +26,7 @@ class Queue {
   }
 
   size() {
-    if (this.key < 0){
+    if (this.key < 0) {
       this.key = 0;
     }
     return this.key;
