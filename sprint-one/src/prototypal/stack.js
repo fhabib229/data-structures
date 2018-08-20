@@ -7,7 +7,7 @@ var Stack = function() {
   return someInstance;
 };
 
-stackMethods = {
+var stackMethods = {
   push: function(value) {
     this.storageSize++;
     this.storage[this.storageSize] = value;
