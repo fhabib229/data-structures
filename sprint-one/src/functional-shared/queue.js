@@ -4,7 +4,6 @@ var Queue = function() {
   var someInstance = {};
   someInstance.storage = {};
   _.extend(someInstance, queueMethods);
-
   return someInstance;
 };
 

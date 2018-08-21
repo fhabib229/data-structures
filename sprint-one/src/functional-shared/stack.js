@@ -4,7 +4,6 @@ var Stack = function() {
   var someInstance = {};
   someInstance.storage = {};
   _.extend(someInstance, stackMethods);
-
   return someInstance;
 };
 
