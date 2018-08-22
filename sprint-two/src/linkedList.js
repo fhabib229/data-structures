@@ -1,42 +1,50 @@
 var LinkedList = function() {
   var list = {};
-  list.head = null;
-  list.tail = null;
   // initialize linkedList instance
   list.linkedListNode = Node();
+  list.head = null;
+  list.tail = null;
 
   list.addToTail = function(value) {
-    // {value: 4, next: {value: 5, next: {value: 6, next: null}}}
+    // linked list format: {value: 4, next: {value: 5, next: {value: 6, next: null}}}
+
     // first check if the linkedList is empty
     if (this.linkedListNode.value === undefined) {
-      // if yes, node.value = value, both head and tail equals the same node.
+      // if yes, initilize node, and point both head and tail to the same node.
       this.linkedListNode = Node(value);
-      this.head = this.linkedListNode;
-      this.tail = this.linkedListNode;
+      var currentPosition = this.linkedListNode;
+      this.head = currentPosition;
+      this.tail = currentPosition;
+      return this.tail;
     } else {
-      // if no, find the last null (recursively?)
-      // and point "next" to new node
-      // this.linkedListNode.next = Node(value);
-      // while loop?
-      list.tail.next = Node(value);
+      // if not, find the lastNode and add the new node to lastNode.next
+      var currentPosition = this.linkedListNode;
+      while(currentPosition.next !== null) {
+        currentPosition = currentPosition.next;
+      }
+      currentPosition.next = Node(value);
+      this.tail = currentPosition.next;
+      return this.tail;
     }
   };
 
-  function findTail(list) {
-    var output;
-    // base case
-    if (list.next === null) {
-      return list;
-    } else {
-      findTail(list.next);
-    }
-  }
-
   list.removeHead = function() {
-    // console.log(Object.keys(list));
+    var removedHead = this.head.value;
+    this.linkedListNode = this.linkedListNode.next;
+    this.head = this.head.next;
+    return removedHead;
   };
 
   list.contains = function(target) {
+    var currentPosition = this.linkedListNode;
+    while(currentPosition.value !== target) {
+      currentPosition = currentPosition.next;
+
+      if (currentPosition === null) {
+        return false;
+      }
+    }
+    return true;
   };
 
   return list;
@@ -53,4 +61,7 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * list.addToTail => O(1);
+ * list.removeHead => O(1);
+ * list.contains => O(n);
  */
