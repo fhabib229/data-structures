@@ -1,15 +1,13 @@
 var Set = function() {
   var set = Object.create(setPrototype);
   set._storage = {}; // fix me
-  set.numProp = 0;
   return set;
 };
 
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  this.numProp++;
-  this._storage[this.numProp] = item;
+  this._storage[item] = item;
 };
 
 setPrototype.contains = function(item) {
@@ -19,10 +17,11 @@ setPrototype.contains = function(item) {
     }
   }
   return false;
-
+  // return Object.values(this._storage).includes(item);
 };
 
 setPrototype.remove = function(item) {
+  delete this._storage[item];
 };
 
 /*
