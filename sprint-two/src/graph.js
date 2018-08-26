@@ -36,6 +36,8 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
   for (var i = 0; i< this.edge.length; i++) {
     if (this.edge[i][0] === fromNode && this.edge[i][1] === toNode) {
       return true;
+    } else if (this.edge[i][0] === toNode && this.edge[i][1] === fromNode) {
+      return true;
     }
   }
   return false;
@@ -50,6 +52,23 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
+  // if this.hasEdge
+  //var connection
+  // iterate through this.edge
+    //if (this.edge[i][0] === fromNode && this.edge[i][1] === toNode)
+    //connection = i
+  //this.edge.splice(connection)
+  var connection;
+  if (this.hasEdge(fromNode, toNode)) {
+    for (var i = 0; i< this.edge.length; i++) {
+      if (this.edge[i][0] === fromNode && this.edge[i][1] === toNode) {
+        connection = i;
+      } else if (this.edge[i][0] === toNode && this.edge[i][1] === fromNode) {
+        connection = i;
+      }
+    }
+  }
+  this.edge.splice(connection)
 };
 
 // Pass in a callback which will be executed on each node of the graph.
