@@ -15,9 +15,9 @@ treeMethods.insert = function(value) {
   // all right values > current value that's being passed in
   // if no value in tree,
   // if passed in value > this.value
-    // add to right tree
+  // add to right tree
   // else if passed in value < this.value
-    // add to left tree
+  // add to left tree
   if (!this.value) {
     this.value = value;
   } else if (value > this.value) {

@@ -24,11 +24,11 @@ treeMethods.addChild = function(value) {
 
 treeMethods.contains = function(target) {
   // if tree has target value
-    // return true
+  // return true
   // test to see if this.children.length > 0
-    // if yes,
-      // test if children have target value
-        // return true
+  // if yes,
+  // test if children have target value
+  // return true
   // else return false
   if (this.value === target) {
     return true;

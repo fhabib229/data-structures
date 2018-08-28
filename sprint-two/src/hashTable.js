@@ -13,7 +13,7 @@ HashTable.prototype.insert = function(k, v) {
   //this._storage.set(index, v);
 
   // Check if k is in _keyStorage
-    // If not, put k in _keyStorage
+  // If not, put k in _keyStorage
   // Check whether index in this._storage is not undefined
   //  Keep both values as an array if not undefined
   // If undefined, use set to put v into index
@@ -37,9 +37,9 @@ HashTable.prototype.insert = function(k, v) {
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   // Check whether returned value is an array
-    // If so, there was a collision
-      // Look back into the keys to see what position the key was being stored in.
-      // Pass the position into this._storage.get(index)[position]
+  // If so, there was a collision
+  // Look back into the keys to see what position the key was being stored in.
+  // Pass the position into this._storage.get(index)[position]
   if (Array.isArray(this._storage.get(index))) {
     var keysWithColl = this._keyStorage.get(index);
     var position = keysWithColl.indexOf(k);
