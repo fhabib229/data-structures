@@ -10,10 +10,18 @@ describe('linkedList', function() {
     expect(linkedList).to.have.property('tail');
   });
 
-  it('should have methods named "addToTail", "removeHead", and "contains"', function() {
+  it('should have methods named "addToTail", "removeHead", "addToHead", and "contains"', function() {
     expect(linkedList.addToTail).to.be.a('function');
     expect(linkedList.removeHead).to.be.a('function');
     expect(linkedList.contains).to.be.a('function');
+    expect(linkedList.addToHead).to.be.a('function');
+  });
+
+  it('should designate a new head when new nodes are added', function() {
+    linkedList.addToHead(4);
+    expect(linkedList.head.value).to.equal(4);
+    linkedList.addToHead(5);
+    expect(linkedList.head.value).to.equal(5);
   });
 
   it('should designate a new tail when new nodes are added', function() {

@@ -1,10 +1,8 @@
 var Tree = function(value) {
   var newTree = {};
   newTree.value = value;
-
-  // your code here
-  newTree.children = [];  // fix me
-  $.extend(newTree, treeMethods);
+  newTree.children = [];
+  _.extend(newTree, treeMethods);
   return newTree;
 };
 
@@ -15,11 +13,13 @@ treeMethods.addChild = function(value) {
   // create a value property on node object, set it to value
   // create a children property and set it to empty array
   // push node to main tree children property
-  var node = {};
-  node.value = value;
-  node.children = [];
+
+  // var node = {};
+  // node.value = value;
+  // node.children = [];
+  // $.extend(node, treeMethods);
+  var node = Tree(value);
   this.children.push(node);
-  $.extend(node, treeMethods);
 };
 
 treeMethods.contains = function(target) {
@@ -45,6 +45,9 @@ treeMethods.contains = function(target) {
   return false;
 };
 
+
 /*
  * Complexity: What is the time complexity of the above functions?
+ * addChild: O(1);
+ * contains: O(n);
  */

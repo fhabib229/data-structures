@@ -4,6 +4,20 @@ describe('set', function() {
   beforeEach(function() {
     set = Set();
   });
+  it ('should have all unique values', function() {
+    var count = function(obj) {
+      var counter = 0;
+      for (var key in obj) {
+        if (obj[key] === 'Susan Sarandon') {
+          counter++;
+        }
+      }
+      return counter;
+    }
+    set.add('Susan Sarandon');
+    set.add('Susan Sarandon');
+    expect(count(set._storage)).to.equal(1);
+  });
 
   it('should have methods named "add", "contains", and "remove"', function() {
     expect(set.add).to.be.a('function');

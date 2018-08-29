@@ -17,6 +17,16 @@ var LinkedList = function() {
     }
   };
 
+  list.addToHead = function(value) {
+    var newNode = Node(value);
+    if (list.head === null) {
+      list.head = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+  };
+
   list.removeHead = function() {
     // Store value of the current head
     // Then p[oint the current head to the next node's value
@@ -69,4 +79,7 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * addToTail: O(1);
+ * removeHead: O(1);
+ * contains: O(n);
  */

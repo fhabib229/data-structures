@@ -28,13 +28,19 @@ Graph.prototype.removeNode = function(node) {
   // remove the node parameter
   this.nodeArray.splice(this.nodeArray.indexOf(node),1);
   // call removeEdge with the pass in node
-  var connection;
-    for (var i = 0; i< this.edge.length; i++) {
-      if (this.edge[i][0] === node || this.edge[i][1] === node) {
-        connection = i;
-      }
+  var connection = [];
+  for (var i = 0; i< this.edge.length; i++) {
+    if (this.edge[i][0] === node || this.edge[i][1] === node) {
+      connection.push(i);
     }
-  this.edge.splice(connection)
+  }
+  var newEdge = [];
+  for (var i = 0; i < this.edge.length; i++) {
+    if (!connection.includes(i)) {
+      newEdge.push(this.edge[i]);
+    }
+  }
+  this.edge = newEdge;
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
@@ -76,7 +82,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
       }
     }
   }
-  this.edge.splice(connection)
+  this.edge.splice(connection);
 };
 
 // Pass in a callback which will be executed on each node of the graph.
@@ -88,6 +94,13 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * addNode: O(1);
+ * contains: O(n);
+ * removeNode: O(n);
+ * hasEdge: O(n);
+ * addEdge: O(1);
+ * removeEdge: O(n);
+ * forEachNode: O(n);
  */
 
 
