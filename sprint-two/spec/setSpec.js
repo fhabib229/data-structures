@@ -13,7 +13,7 @@ describe('set', function() {
         }
       }
       return counter;
-    }
+    };
     set.add('Susan Sarandon');
     set.add('Susan Sarandon');
     expect(count(set._storage)).to.equal(1);

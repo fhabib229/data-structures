@@ -2,7 +2,7 @@ var Tree = function(value) {
   var newTree = {};
   newTree.value = value;
   newTree.children = [];
-  _.extend(newTree, treeMethods);
+  $.extend(newTree, treeMethods);
   return newTree;
 };
 
@@ -43,6 +43,12 @@ treeMethods.contains = function(target) {
     }
   }
   return false;
+};
+
+treeMethods.forEach = function(callback) {
+  for (var i = 0; i < this.children.length; i++) {
+    callback(this.children[i].value);
+  }
 };
 
 

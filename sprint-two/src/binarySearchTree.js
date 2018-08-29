@@ -1,15 +1,15 @@
 var BinarySearchTree = function(value) {
-  var newTree = {};
-  newTree.children = [];
-  newTree.value = value;
-  newTree.left = null;
-  newTree.right = null;
-  $.extend(newTree, treeMethods);
-  return newTree;
+  var binaryTree = {};
+  binaryTree.children = [];
+  binaryTree.value = value;
+  binaryTree.left = null;
+  binaryTree.right = null;
+  $.extend(binaryTree, binaryMethods);
+  return binaryTree;
 };
 
-var treeMethods = {};
-treeMethods.insert = function(value) {
+var binaryMethods = {};
+binaryMethods.insert = function(value) {
   // determine if value is going to left or right
   // all left values < current value that's being passed in
   // all right values > current value that's being passed in
@@ -36,7 +36,7 @@ treeMethods.insert = function(value) {
   };
   searchTree(this);
 };
-treeMethods.contains = function(value) {
+binaryMethods.contains = function(value) {
   // Use a recursive function to compare the value passed in w/ left and right values
   // Base: if value is the same, return true
   // If value is not the same, check whether the value is less than or greater than the current bTree value
@@ -64,7 +64,7 @@ treeMethods.contains = function(value) {
   compareTree(this);
   return result;
 };
-treeMethods.depthFirstLog = function(cb) {
+binaryMethods.depthFirstLog = function(cb) {
   var searchTree = function(bTree) {
     cb(bTree.value);
     if (bTree.left) {
