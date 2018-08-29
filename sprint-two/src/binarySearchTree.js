@@ -17,7 +17,7 @@ treeMethods.insert = function(value) {
   // if passed in value > this.value
   // add to right tree
   // else if passed in value < this.value
-    // add to left tree
+  // add to left tree
 
   // define a new node, BinarySearchTree
   // compare value, see if go left / right
@@ -33,34 +33,34 @@ treeMethods.insert = function(value) {
     } else if (bTree.value < value) {
       searchTree(bTree.right);
     }
-  }
+  };
   searchTree(this);
 };
 treeMethods.contains = function(value) {
   // Use a recursive function to compare the value passed in w/ left and right values
   // Base: if value is the same, return true
   // If value is not the same, check whether the value is less than or greater than the current bTree value
-    // If less, go left
-      // Call recursive function
-    // If greater, go right
-      // Call recursive function
+  // If less, go left
+  // Call recursive function
+  // If greater, go right
+  // Call recursive function
   // If both left and right are null and no match
-    // return false
+  // return false
   var result = false;
   var compareTree = function(bTree) {
     if (bTree.value === value) {
       result = true;
     } else {
-    if (bTree.left && value < bTree.value ) {
-      compareTree(bTree.left);
-    }
-    if (bTree.right && value > bTree.value ) {
-      compareTree(bTree.right);
-    } else {
-      result = false;
+      if (bTree.left && value < bTree.value ) {
+        compareTree(bTree.left);
+      }
+      if (bTree.right && value > bTree.value ) {
+        compareTree(bTree.right);
+      } else {
+        result = false;
       }
     }
-  }
+  };
   compareTree(this);
   return result;
 };
@@ -76,7 +76,7 @@ treeMethods.depthFirstLog = function(cb) {
     if (bTree.right === null && bTree.left === null) {
       return;
     }
-  }
+  };
   searchTree(this);
 };
 

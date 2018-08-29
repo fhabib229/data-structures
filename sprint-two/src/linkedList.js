@@ -2,11 +2,11 @@ var LinkedList = function() {
   var list = {};
   list.head = null;
   list.tail = null;
-// {head: {value: 4, next: {value: }}, tail: {value: 5, next: null}}
+  // {head: {value: 4, next: {value: }}, tail: {value: 5, next: null}}
   list.addToTail = function(value) {
     // check whether list has a node
-      // if not, initiate node
-      // if list is not empty, find the last node and add a new node to it.
+    // if not, initiate node
+    // if list is not empty, find the last node and add a new node to it.
     var newNode = Node(value);
     if (list.tail === null) {
       list.tail = newNode;
@@ -38,9 +38,9 @@ var LinkedList = function() {
   list.contains = function(target) {
     // Create an array
     // Iterate through LL until next = null
-      // Push the value properties into the array
+    // Push the value properties into the array
     // If array includes the target
-      // return true
+    // return true
     var linkedListValue = [];
     var currentPosition = this.head;
     while (currentPosition.next !== null) {

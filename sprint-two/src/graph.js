@@ -69,8 +69,8 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
   // if this.hasEdge
   //var connection
   // iterate through this.edge
-    //if (this.edge[i][0] === fromNode && this.edge[i][1] === toNode)
-    //connection = i
+  //if (this.edge[i][0] === fromNode && this.edge[i][1] === toNode)
+  //connection = i
   //this.edge.splice(connection)
   var connection;
   if (this.hasEdge(fromNode, toNode)) {
