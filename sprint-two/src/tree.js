@@ -2,15 +2,6 @@ var Tree = function(value) {
   var newTree = {};
   newTree.value = value;
   newTree.children = [];
-<<<<<<< HEAD
-  $.extend(newTree, treeMethods);
-  return newTree;
-};
-
-var treeMethods = {
-  contains: function(target) {
-    // if tree has target value
-=======
   _.extend(newTree, treeMethods);
   return newTree;
 };
@@ -33,40 +24,28 @@ treeMethods.addChild = function(value) {
 
 treeMethods.contains = function(target) {
   // if tree has target value
->>>>>>> 32fa4a2c679944c2d760bef40422533d1d42c032
-    // return true
-    // test to see if this.children.length > 0
-    // if yes,
-    // test if children have target value
-    // return true
-    // else return false
-    if (this.value === target) {
-      return true;
-    } else if (this.children.length) {
-      for (var i = 0; i < this.children.length ; i++ ) {
-        if (this.children[i].value === target) {
-          return true;
-        }
-        if (this.children[i].contains(target)) {
-          return true;
-        }
+  // return true
+  // test to see if this.children.length > 0
+  // if yes,
+  // test if children have target value
+  // return true
+  // else return false
+  if (this.value === target) {
+    return true;
+  } else if (this.children.length) {
+    for (var i = 0; i < this.children.length ; i++ ) {
+      if (this.children[i].value === target) {
+        return true;
+      }
+      if (this.children[i].contains(target)) {
+        return true;
       }
     }
-    return false;
-  },
-  addChild: function(value) {
-    // initiate a node object
-    // create a value property on node object, set it to value
-    // create a children property and set it to empty array
-    // push node to main tree children property
-    this.children.push(Tree(value));
   }
+  return false;
 };
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 32fa4a2c679944c2d760bef40422533d1d42c032
 /*
  * Complexity: What is the time complexity of the above functions?
  * addChild: O(1);

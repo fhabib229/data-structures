@@ -17,15 +17,6 @@ treeMethods.insert = function(value) {
   // if passed in value > this.value
   // add to right tree
   // else if passed in value < this.value
-<<<<<<< HEAD
-  // add to left tree
-  if (!this.value) {
-    this.value = value;
-  } else if (value > this.value) {
-    this.right = BinarySearchTree(value);
-  } else {
-    this.left = BinarySearchTree(value);
-=======
     // add to left tree
 
   // define a new node, BinarySearchTree
@@ -42,7 +33,6 @@ treeMethods.insert = function(value) {
     } else if (bTree.value < value) {
       searchTree(bTree.right);
     }
->>>>>>> 32fa4a2c679944c2d760bef40422533d1d42c032
   }
   searchTree(this);
 };
