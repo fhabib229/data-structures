@@ -13,6 +13,10 @@ describe('hashTable', function() {
     expect(hashTable.retrieve).to.be.a('function');
   });
 
+  it('should return undefined if key has not been passed in', function() {
+    expect(hashTable.retrieve('Hello')).to.equal(undefined);
+  });
+
   it('should store values that were inserted', function() {
     hashTable.insert('Steven', 'Seagal');
     expect(hashTable.retrieve('Steven')).to.equal('Seagal');
