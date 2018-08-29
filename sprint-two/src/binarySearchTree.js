@@ -18,13 +18,23 @@ treeMethods.insert = function(value) {
     // add to right tree
   // else if passed in value < this.value
     // add to left tree
-  if (!this.value) {
-    this.value = value;
-  } else if (value > this.value) {
-    this.right = BinarySearchTree(value);
-  } else {
-    this.left = BinarySearchTree(value);
+
+  // define a new node, BinarySearchTree
+  // compare value, see if go left / right
+  // if left / right already has value, do recursive call
+  var node = BinarySearchTree(value);
+  var searchTree = function(bTree) {
+    if (bTree.left === null && bTree.value > value) {
+      bTree.left = node;
+    } else if (bTree.right === null && bTree.value < value) {
+      bTree.right = node;
+    } else if (bTree.value > value) {
+      searchTree(bTree.left);
+    } else if (bTree.value < value) {
+      searchTree(bTree.right);
+    }
   }
+  searchTree(this);
 };
 treeMethods.contains = function() {
 
